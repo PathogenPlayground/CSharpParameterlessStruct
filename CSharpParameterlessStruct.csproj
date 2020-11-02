@@ -1,12 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <!--
+    This demonstration uses an extracted NuGet package to avoid polluting your NuGet cache with this package.
+    If you imported this as a normal NuGet package you'd use a PackageReference instead, IE:
+    <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="3.9.0-dev">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  -->
+  <Import Project="Microsoft.Net.Compilers.Toolset.3.9.0-dev/build/Microsoft.Net.Compilers.Toolset.props" />
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <Features>StructParameterlessConstructors</Features>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="MyStruct" HintPath="MyStruct.dll" />
-  </ItemGroup>
 
 </Project>
